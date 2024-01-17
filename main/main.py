@@ -172,6 +172,8 @@ def run(global_dict):
 
 
 if __name__ == "__main__":
+    # TODO heat capacity at low settings at the moment
+
     # Practical set-up to play around with the settings:
     global_dict = {}
     # -------------------

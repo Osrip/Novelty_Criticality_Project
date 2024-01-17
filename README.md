@@ -88,3 +88,19 @@ And evaluate the agents:
             genome.fitness = evaluator.eval_genome(genome, ...)
 ```
 
+
+### Installation:
+Install preferably with miniforge but any conda build should do.
+First install latest PyTorch build for your system (this version was installed in january 2024)
+Delete all torch-related stuff from new_build_environemnt.yml
+Install the rest from new_build_environemnt.yml
+```angular2html
+mamba create -n phdenv
+mamba env update -n phdenv -f phdenv.yml
+```
+subsequently install ray and python-neat 0.92 using pip
+```angular2html
+pip install ray # In my tested build I accidentally used pip instead of pip3 to install ray, but pip3 should do, too. Installed ray version was 2.9.0, but the latest version should do
+pip3 install neat-python==0.92
+```
+

@@ -1,0 +1,15 @@
+name: novelty_criticality_new_build
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pytorch::pytorch
+  - torchvision
+  - torchaudio
+  - ca-certificates
+  - openssl
+  - matplotlib
+  - certifi
+  - conda-forge::gym
+  - anaconda::scipy
+prefix: /Users/jan/miniforge3/envs/novelty_criticality_new_build
