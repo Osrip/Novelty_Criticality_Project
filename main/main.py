@@ -198,11 +198,11 @@ if __name__ == "__main__":
 
     # HEAT CAPACITY  CALCULATIONS
     # Hyper parameters fpor heat capacity calculations:
-    global_dict['n_internal_heat_cap'] = 10  # 100
+    global_dict['n_internal_heat_cap'] = 1 #10
     global_dict['exp_c_beta_min'] = -2
     global_dict['exp_c_beta_max'] = 2
-    global_dict['num_c_beta'] = 100  # 100
-    global_dict['num_batches_heat_cap'] = 1000
+    global_dict['num_c_beta'] = 10 #100  # 100
+    global_dict['num_batches_heat_cap'] = 10 #1000
     global_dict['internal_steps_before_recording_heat_cap'] = 0
 
     # Heat capacity calculations have to be initialized at energy minimum.

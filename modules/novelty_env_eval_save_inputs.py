@@ -54,7 +54,7 @@ class MultiEnvEvaluatorNovelty:
 
         fitnesses = np.zeros(self.batch_size)
 
-        states = [env.reset() for env in self.envs]
+        states = [env.reset()[0] for env in self.envs]
         dones = [False] * self.batch_size
 
         if record:
@@ -81,8 +81,10 @@ class MultiEnvEvaluatorNovelty:
             if debug:
                 actions = self.activate_net(
                     net, states, debug=True, step_num=step_num)
+                actions = actions.astype('int64')
             else:
                 actions = self.activate_net(net, states)
+                actions = actions.astype('int64')
             assert len(actions) == len(self.envs)
             for i, (env, action, done) in enumerate(zip(self.envs, actions, dones)):
                 if display_env:
@@ -92,7 +94,8 @@ class MultiEnvEvaluatorNovelty:
                     env.render()
                     video_recorder.capture_frame()
                 if not done:
-                    state, reward, done, _ = env.step(action)
+                    # Weirdly there is an empty dict at the end as an output of the step function
+                    state, reward, done, _ = env.step(action)[0:-1]
 
                     fitnesses[i] += reward
                     if not done:
